@@ -3,6 +3,9 @@
 #include <fstream>
 #include <vector>
 #include <cmath>
+#include <algorithm>
+#include <iomanip>
+#include <filesystem>
 #include "io_handler.hpp"
 #include "model_data.hpp"
 #include "model_functions.hpp"
@@ -163,10 +166,33 @@ double computeRAE(const VectorXd& sample, const VectorXd& estimated) {
 //                                            MAIN                                                //
 /**************************************************************************************************/
 
-int main(){
+int main(int argc, char* argv[]){
+
+    bool savePlot = false;
+
+    for (int i = 1; i < argc; ++i) {
+        const std::string arg = argv[i];
+
+        if (arg == "--plot") {
+            savePlot = true;
+        } else if (arg == "--help" || arg == "-h") {
+            std::cout
+                << "Usage: stochastic_diffusion [--plot]\n"
+                << "\n"
+                << "Runs a fast parameter-estimation demo on the supplied\n"
+                << "stochastic diffusion trajectories.\n"
+                << "\n"
+                << "Options:\n"
+                << "  --plot   Save figures/model_fit.png\n";
+            return 0;
+        } else {
+            std::cerr << "Unknown argument: " << arg << "\n";
+            return 2;
+        }
+    }
 
     // Leer CSV
-    vector<vector<double>> data = readCSV("../data/TrayectoriasSimuladas_Multisigmoidal_Articulo.csv");
+    vector<vector<double>> data = readCSV("data/TrayectoriasSimuladas_Multisigmoidal_Articulo.csv");
     
     // Convertir a Eigen matriz
     MatrixXd eigenMatrix = convertToMatrix(data);
@@ -253,71 +279,146 @@ int main(){
     VectorXd epsilon_real(tam_var);
     epsilon_real << real_eta, real_beta1, real_beta2, real_beta3, real_sigma; 
 
-    // Estimaciones de las trayectorias
 
-    // NR
-    double eta_nr   = 0.36312;
-    double b1_nr    = 0.104492;
-    double b2_nr    = -0.00928902;
-    double b3_nr    = 0.000204749;
+    // -------------------------------------------------------------------------
+    // Fast portfolio demo
+    // -------------------------------------------------------------------------
 
-    // Búsqueda Local (BL)
-    double eta_bl = 0.384842;
-    double b1_bl = 0.107690;
-    double b2_bl = -0.009599;
-    double b3_bl = 0.000210860;
+    const VectorXd sampleMean = removeFirst(arithmeticMean());
 
-    // Simulated Annealing (SA)
-    double eta_sa = 0.374303;
-    double b1_sa = 0.109739;
-    double b2_sa = -0.009670;
-    double b3_sa = 0.00021118;
+    const VectorXd estimatedMean =
+        media(val_eta, val_beta1, val_beta2, val_beta3);
 
-    // Iterated Local Search (ILS)
-    double eta_ils = 0.415067;
-    double b1_ils = 0.109651;
-    double b2_ils = -0.009780;
-    double b3_ils = 0.000215;
+    const VectorXd referenceMean =
+        media(real_eta, real_beta1, real_beta2, real_beta3);
 
-    // Evolutionary Algorithm sin elitismo (EA)
-    double eta_ea = 0.374502;
-    double b1_ea = 0.103642;
-    double b2_ea = -0.009623;
-    double b3_ea = 0.000200;
+    auto rmse = [](const VectorXd& observed, const VectorXd& predicted) {
+        if (observed.size() != predicted.size() || observed.size() == 0) {
+            return std::numeric_limits<double>::quiet_NaN();
+        }
 
-    // Evolutionary Algorithm con elitismo (EA+E)
-    double eta_eae = 0.370183;
-    double b1_eae = 0.099506;
-    double b2_eae = -0.008949;
-    double b3_eae = 0.000199;
-
-    // Memético (MA)
-    double eta_mae = 0.369941;
-    double b1_mae = 0.099469;
-    double b2_mae = -0.008973;
-    double b3_mae = 0.000199;
-
-    // Differential Evolution (DE)
-    double eta_de = 0.368640;
-    double b1_de = 0.098817;
-    double b2_de = -0.008912;
-    double b3_de = 0.000198;
-
-    // Curvas estimadas por cada algoritmo
-    std::vector<std::pair<std::string, VectorXd>> curvas = {
-        {"Teórica", m_teorica},
-        {"Muestral", m_sample},
-        {"BL", media(eta_bl, b1_bl, b2_bl, b3_bl)},
-        {"SA", media(eta_sa, b1_sa, b2_sa, b3_sa)},
-        {"ILS", media(eta_ils, b1_ils, b2_ils, b3_ils)}
-        {"EA", media(eta_ea, b1_ea, b2_ea, b3_ea)},
-        {"EA+Elitismo", media(eta_eae, b1_eae, b2_eae, b3_eae)},
-        {"MA", media(eta_mae, b1_mae, b2_mae, b3_mae)},
-        {"DE", media(eta_de, b1_de, b2_de, b3_de)}
+        return std::sqrt(
+            (observed - predicted).squaredNorm()
+            / static_cast<double>(observed.size())
+        );
     };
 
-    // Visualización
-    //graphMultipleCurvesNR(t_values, curvas, "Comparación de medias estimadas por algoritmo");
+    const double estimateRmse = rmse(sampleMean, estimatedMean);
+    const double referenceRmse = rmse(sampleMean, referenceMean);
+
+    std::cout << "\n";
+    std::cout << "StochasticDiffusion\n";
+    std::cout << "============================================================\n";
+    std::cout << "Parameter estimation for a stochastic multi-sigmoidal\n";
+    std::cout << "diffusion model from simulated trajectories.\n\n";
+
+    std::cout << "Dataset\n";
+    std::cout << "------------------------------------------------------------\n";
+    std::cout << "Trajectories      : " << d << "\n";
+    std::cout << "Time observations : " << N << "\n\n";
+
+    std::cout << std::fixed << std::setprecision(6);
+
+    std::cout << "Regression-based parameter estimate\n";
+    std::cout << "------------------------------------------------------------\n";
+    std::cout
+        << std::left  << std::setw(12) << "Parameter"
+        << std::right << std::setw(14) << "Estimate"
+        << std::setw(14) << "Reference"
+        << std::setw(14) << "Abs. error"
+        << "\n";
+
+    std::cout << std::string(54, '-') << "\n";
+
+    auto printParameter = [](const std::string& name,
+                             double estimate,
+                             double reference) {
+        std::cout
+            << std::left  << std::setw(12) << name
+            << std::right << std::setw(14) << estimate
+            << std::setw(14) << reference
+            << std::setw(14) << std::abs(estimate - reference)
+            << "\n";
+    };
+
+    printParameter("eta",   val_eta,   real_eta);
+    printParameter("beta1", val_beta1, real_beta1);
+    printParameter("beta2", val_beta2, real_beta2);
+    printParameter("beta3", val_beta3, real_beta3);
+
+    const double maxRelativeParameterError = std::max({
+        std::abs((val_eta   - real_eta)   / real_eta),
+        std::abs((val_beta1 - real_beta1) / real_beta1),
+        std::abs((val_beta2 - real_beta2) / real_beta2),
+        std::abs((val_beta3 - real_beta3) / real_beta3)
+    }) * 100.0;
+
+    std::cout
+        << "\nMaximum relative shape-parameter error: "
+        << std::setprecision(2)
+        << maxRelativeParameterError
+        << "%\n";
+
+    std::cout << std::setprecision(6);
+
+    std::cout << "\nMean-trajectory fit\n";
+    std::cout << "------------------------------------------------------------\n";
+    std::cout << "Estimated model RMSE : " << estimateRmse << "\n";
+    std::cout << "Reference model RMSE  : " << referenceRmse << "\n";
+
+    if (savePlot) {
+        std::filesystem::create_directories("figures");
+
+        const bool modelPlotOk = saveDemoFitPlot(
+            t_values,
+            sampleMean,
+            estimatedMean,
+            referenceMean,
+            "figures/model_fit.png"
+        );
+
+        const bool trajectoryPlotOk = saveTrajectoryFitPlot(
+            x,
+            t_values,
+            sampleMean,
+            estimatedMean,
+            referenceMean,
+            "figures/trajectory_fit.png"
+        );
+
+        VectorXd estimatedParameters(4);
+        estimatedParameters
+            << val_eta, val_beta1, val_beta2, val_beta3;
+
+        VectorXd referenceParameters(4);
+        referenceParameters
+            << real_eta, real_beta1, real_beta2, real_beta3;
+
+        const bool parameterPlotOk = saveParameterRecoveryPlot(
+            estimatedParameters,
+            referenceParameters,
+            "figures/parameter_recovery.png"
+        );
+
+        if (!modelPlotOk || !trajectoryPlotOk || !parameterPlotOk) {
+            std::cerr
+                << "\nCould not generate the figures. "
+                << "Check that gnuplot is installed.\n";
+            return 3;
+        }
+
+        std::cout << "\nFigures saved:\n";
+        std::cout << "  figures/model_fit.png\n";
+        std::cout << "  figures/trajectory_fit.png\n";
+        std::cout << "  figures/parameter_recovery.png\n";
+    }
+
+    std::cout << "\nDemo completed successfully.\n\n";
+
+    // Historical curve estimates were used only for thesis visualisation.
+    // The plotting block is intentionally omitted from the portfolio executable
+    // because its precomputed reference vectors are not part of this repository.
+
 
 
     // Ejecución del algoritmo

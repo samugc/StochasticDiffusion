@@ -158,7 +158,7 @@ void graphAllPaths() {
 
 VectorXd media(double eta,double beta1,double beta2, double beta3) {
     // Inicializamos el vector de salida
-    int tam = 501;
+    int tam = static_cast<int>(t_values.size());
     VectorXd m(tam);  // Asumiendo que queremos almacenar 502 valores
     double theta[] = {0.0, beta1, beta2, beta3};
     
@@ -379,4 +379,301 @@ void graphMultipleCurvesNR(const VectorXd& x,
     }
 
     pclose(pipe);
+}
+
+
+bool saveDemoFitPlot(
+    const Eigen::VectorXd& time,
+    const Eigen::VectorXd& sampleMean,
+    const Eigen::VectorXd& estimatedMean,
+    const Eigen::VectorXd& referenceMean,
+    const std::string& outputPath)
+{
+    if (time.size() != sampleMean.size() ||
+        time.size() != estimatedMean.size() ||
+        time.size() != referenceMean.size()) {
+        std::cerr << "Cannot generate plot: vector sizes differ.\n";
+        return false;
+    }
+
+    FILE* pipe = popen("gnuplot", "w");
+
+    if (!pipe) {
+        std::cerr << "Could not start gnuplot.\n";
+        return false;
+    }
+
+    fprintf(
+        pipe,
+        "set terminal pngcairo size 1400,800 enhanced font 'Arial,13'\n"
+    );
+
+    fprintf(pipe, "set output '%s'\n", outputPath.c_str());
+
+    fprintf(
+        pipe,
+        "set title 'Stochastic diffusion model fit' font ',18'\n"
+    );
+
+    fprintf(pipe, "set xlabel 'Time'\n");
+    fprintf(pipe, "set ylabel 'Mean trajectory'\n");
+    fprintf(pipe, "set grid back\n");
+    fprintf(pipe, "set border linewidth 1.2\n");
+    fprintf(pipe, "set tics out\n");
+    fprintf(pipe, "set key left top box opaque\n");
+
+    fprintf(
+        pipe,
+        "plot "
+        "'-' with points pt 7 ps 0.55 lc rgb '#4C78A8' "
+        "title 'Observed sample mean', "
+        "'-' with lines lw 3 lc rgb '#E45756' "
+        "title 'Estimated model', "
+        "'-' with lines lw 2 dt 2 lc rgb '#333333' "
+        "title 'Reference model'\n"
+    );
+
+    for (int i = 0; i < time.size(); ++i) {
+        fprintf(pipe, "%.10f %.10f\n", time(i), sampleMean(i));
+    }
+    fprintf(pipe, "e\n");
+
+    for (int i = 0; i < time.size(); ++i) {
+        fprintf(pipe, "%.10f %.10f\n", time(i), estimatedMean(i));
+    }
+    fprintf(pipe, "e\n");
+
+    for (int i = 0; i < time.size(); ++i) {
+        fprintf(pipe, "%.10f %.10f\n", time(i), referenceMean(i));
+    }
+    fprintf(pipe, "e\n");
+
+    fflush(pipe);
+    return pclose(pipe) == 0;
+}
+
+
+bool saveTrajectoryFitPlot(
+    const Eigen::MatrixXd& trajectories,
+    const Eigen::VectorXd& time,
+    const Eigen::VectorXd& sampleMean,
+    const Eigen::VectorXd& estimatedMean,
+    const Eigen::VectorXd& referenceMean,
+    const std::string& outputPath)
+{
+    if (time.size() != sampleMean.size() ||
+        time.size() != estimatedMean.size() ||
+        time.size() != referenceMean.size()) {
+        std::cerr << "Cannot generate trajectory plot: vector sizes differ.\n";
+        return false;
+    }
+
+    if (trajectories.rows() < 2 ||
+        trajectories.cols() < time.size() + 1) {
+        std::cerr << "Cannot generate trajectory plot: invalid trajectory matrix.\n";
+        return false;
+    }
+
+    FILE* pipe = popen("gnuplot", "w");
+
+    if (!pipe) {
+        std::cerr << "Could not start gnuplot.\n";
+        return false;
+    }
+
+    fprintf(
+        pipe,
+        "set terminal pngcairo size 1400,800 enhanced font 'Arial,13'\n"
+    );
+
+    fprintf(pipe, "set output '%s'\n", outputPath.c_str());
+
+    fprintf(
+        pipe,
+        "set title 'Stochastic trajectories and fitted diffusion model' font ',18'\n"
+    );
+
+    fprintf(pipe, "set xlabel 'Time'\n");
+    fprintf(pipe, "set ylabel 'Process value'\n");
+    fprintf(pipe, "set grid back lc rgb '#dddddd'\n");
+    fprintf(pipe, "set border linewidth 1.2\n");
+    fprintf(pipe, "set tics out\n");
+    fprintf(pipe, "set key left top box opaque\n");
+
+    const int available = static_cast<int>(trajectories.rows()) - 1;
+    const int maxDisplayed = 20;
+
+    int step = available / maxDisplayed;
+    if (step < 1) {
+        step = 1;
+    }
+
+    int displayed = 0;
+    for (int i = 1; i <= available && displayed < maxDisplayed; i += step) {
+        ++displayed;
+    }
+
+    fprintf(pipe, "plot ");
+
+    for (int k = 0; k < displayed; ++k) {
+        if (k > 0) {
+            fprintf(pipe, ", ");
+        }
+
+        if (k == 0) {
+            fprintf(
+                pipe,
+                "'-' with lines lw 0.7 lc rgb '#c7c7c7' "
+                "title 'Individual trajectories'"
+            );
+        } else {
+            fprintf(
+                pipe,
+                "'-' with lines lw 0.7 lc rgb '#c7c7c7' notitle"
+            );
+        }
+    }
+
+    fprintf(
+        pipe,
+        ", '-' with lines lw 2.5 lc rgb '#4C78A8' "
+        "title 'Observed sample mean'"
+    );
+
+    fprintf(
+        pipe,
+        ", '-' with lines lw 3 lc rgb '#E45756' "
+        "title 'Estimated model'"
+    );
+
+    fprintf(
+        pipe,
+        ", '-' with lines lw 2 dt 2 lc rgb '#333333' "
+        "title 'Reference model'\n"
+    );
+
+    int written = 0;
+    for (int i = 1; i <= available && written < displayed; i += step) {
+        for (int j = 0; j < time.size(); ++j) {
+            fprintf(
+                pipe,
+                "%.10f %.10f\n",
+                time(j),
+                trajectories(i, j + 1)
+            );
+        }
+        fprintf(pipe, "e\n");
+        ++written;
+    }
+
+    for (int i = 0; i < time.size(); ++i) {
+        fprintf(pipe, "%.10f %.10f\n", time(i), sampleMean(i));
+    }
+    fprintf(pipe, "e\n");
+
+    for (int i = 0; i < time.size(); ++i) {
+        fprintf(pipe, "%.10f %.10f\n", time(i), estimatedMean(i));
+    }
+    fprintf(pipe, "e\n");
+
+    for (int i = 0; i < time.size(); ++i) {
+        fprintf(pipe, "%.10f %.10f\n", time(i), referenceMean(i));
+    }
+    fprintf(pipe, "e\n");
+
+    fflush(pipe);
+    return pclose(pipe) == 0;
+}
+
+
+bool saveParameterRecoveryPlot(
+    const Eigen::VectorXd& estimated,
+    const Eigen::VectorXd& reference,
+    const std::string& outputPath)
+{
+    if (estimated.size() != 4 || reference.size() != 4) {
+        std::cerr << "Parameter recovery plot expects four shape parameters.\n";
+        return false;
+    }
+
+    double errors[4];
+    double maxError = 0.0;
+
+    for (int i = 0; i < 4; ++i) {
+        if (reference(i) == 0.0) {
+            std::cerr << "Cannot compute relative error for zero reference.\n";
+            return false;
+        }
+
+        errors[i] =
+            std::abs((estimated(i) - reference(i)) / reference(i)) * 100.0;
+
+        if (errors[i] > maxError) {
+            maxError = errors[i];
+        }
+    }
+
+    FILE* pipe = popen("gnuplot", "w");
+
+    if (!pipe) {
+        std::cerr << "Could not start gnuplot.\n";
+        return false;
+    }
+
+    const double yMax = std::max(5.0, maxError * 1.35);
+
+    fprintf(
+        pipe,
+        "set terminal pngcairo size 1100,700 enhanced font 'Arial,13'\n"
+    );
+
+    fprintf(pipe, "set output '%s'\n", outputPath.c_str());
+
+    fprintf(
+        pipe,
+        "set title 'Recovery of model parameters from stochastic data' "
+        "font ',18'\n"
+    );
+
+    fprintf(pipe, "set ylabel 'Relative error (%%)'\n");
+    fprintf(pipe, "set xrange [-0.6:3.6]\n");
+    fprintf(pipe, "set yrange [0:%.6f]\n", yMax);
+
+    fprintf(
+        pipe,
+        "set xtics ('eta' 0, 'beta1' 1, 'beta2' 2, 'beta3' 3)\n"
+    );
+
+    fprintf(pipe, "set grid ytics back lc rgb '#dddddd'\n");
+    fprintf(pipe, "set border linewidth 1.2\n");
+    fprintf(pipe, "set tics out\n");
+    fprintf(pipe, "set boxwidth 0.58\n");
+    fprintf(pipe, "set style fill solid 0.85 border -1\n");
+    fprintf(pipe, "unset key\n");
+
+    fprintf(
+        pipe,
+        "plot "
+        "'-' using 1:2 with boxes lc rgb '#4C78A8', "
+        "'-' using 1:2:3 with labels center offset 0,0.8\n"
+    );
+
+    for (int i = 0; i < 4; ++i) {
+        fprintf(pipe, "%d %.10f\n", i, errors[i]);
+    }
+    fprintf(pipe, "e\n");
+
+    for (int i = 0; i < 4; ++i) {
+        fprintf(
+            pipe,
+            "%d %.10f \"%.2f%%\"\n",
+            i,
+            errors[i],
+            errors[i]
+        );
+    }
+    fprintf(pipe, "e\n");
+
+    fflush(pipe);
+    return pclose(pipe) == 0;
 }

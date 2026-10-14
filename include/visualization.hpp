@@ -42,4 +42,31 @@ void graphMultipleCurves(const Eigen::VectorXd& x, const std::vector<std::pair<s
 // Función que grafica múltiples curvas, cada una con su propio nombre y datos, que incluye NR.
 void graphMultipleCurvesNR(const Eigen::VectorXd& x, const std::vector<std::pair<std::string, Eigen::VectorXd>>& curves,const std::string& titulo);
 
+
+// Save the fast portfolio demo as a PNG figure.
+bool saveDemoFitPlot(
+    const Eigen::VectorXd& time,
+    const Eigen::VectorXd& sampleMean,
+    const Eigen::VectorXd& estimatedMean,
+    const Eigen::VectorXd& referenceMean,
+    const std::string& outputPath);
+
+
+// Save a portfolio figure with representative stochastic trajectories
+// together with the observed mean and fitted diffusion model.
+bool saveTrajectoryFitPlot(
+    const Eigen::MatrixXd& trajectories,
+    const Eigen::VectorXd& time,
+    const Eigen::VectorXd& sampleMean,
+    const Eigen::VectorXd& estimatedMean,
+    const Eigen::VectorXd& referenceMean,
+    const std::string& outputPath);
+
+
+// Save relative recovery errors for the four shape parameters.
+bool saveParameterRecoveryPlot(
+    const Eigen::VectorXd& estimated,
+    const Eigen::VectorXd& reference,
+    const std::string& outputPath);
+
 #endif

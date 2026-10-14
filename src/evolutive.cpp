@@ -62,7 +62,6 @@ Result evolutionaryAlgorithm(
     using namespace std::chrono;
     auto start = high_resolution_clock::now();
 
-    int dim = bounds.cols();
     std::vector<Individual> population;
 
     // Inicializar población
@@ -73,7 +72,7 @@ Result evolutionaryAlgorithm(
     for (int gen = 0; gen < generations; ++gen) {
         std::vector<Individual> newPop;
 
-        while (newPop.size() < popSize) {
+        while (static_cast<int>(newPop.size()) < popSize) {
             Individual parent1 = tournament(population);
             Individual parent2 = tournament(population);
 

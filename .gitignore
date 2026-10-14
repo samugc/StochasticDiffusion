@@ -1,0 +1,36 @@
+# Build directories and CMake artefacts
+build/
+build-*/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+install_manifest.txt
+compile_commands.json
+CPackConfig.cmake
+CPackSourceConfig.cmake
+build.ninja
+.ninja_deps
+.ninja_log
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+.env/
+
+# macOS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Other generated outputs (historical results and figures are publishable)
+outputs/
+*.log

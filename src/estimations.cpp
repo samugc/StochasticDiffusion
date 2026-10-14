@@ -94,8 +94,6 @@ VectorXd valuesPolymomialRegression(){
 
 double estimateSigma(){
 
-    double sigma;
-
     VectorXd sigma2(N+1);
     sigma2 = vectorSigma2();
 
@@ -130,7 +128,7 @@ VectorXd estimateEtaBeta(int degree){
     VectorXd poly(degree);
     poly = polynomialRegression(newT,newY,degree);
 
-    function<double(double)> func = [poly, degree](double x) {
+    function<double(double)> func = [poly](double x) {
         double result = 0.0;
         double power = 1.0;
         for (int i = 0; i < poly.size(); ++i) {

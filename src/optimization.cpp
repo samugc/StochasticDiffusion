@@ -3,16 +3,9 @@
 using namespace std;
 using namespace Eigen;
 
-double logLikelihood(const VectorXd& alpha, const VectorXd& epsilon) {
+double logLikelihood(const VectorXd&, const VectorXd& epsilon) {
 
-    double mu1 = alpha(0);
-    double sigma12 = alpha(1);
-
-    double eta = epsilon(0);
-    double beta1 = epsilon(1);
-    double beta2 = epsilon(2);
-    double beta3 = epsilon(3);
-    double sigma2 = epsilon(4);
+    const double sigma2 = epsilon(4);
 
     double lGorro = -(nTotal<double>()/2.0)*log(sigma2) - (Z1<double>() + phi(epsilon) - 2*varGamma(epsilon)) / (2*sigma2);
     

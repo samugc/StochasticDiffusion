@@ -1,0 +1,1324 @@
+{
+  "source": {
+    "path": "/Users/samu/Documents/Uni/5º/2º Cuatri/TFG/TFG_trabajo/Plantilla-TFG-master/capitulos/aplicacion_info.tex",
+    "sha256": "2a80e6fa8b59144288adf60a74c4cc267ffb1d8570ebc4bdeb912940b0ff309c"
+  },
+  "historical_error_sources": [
+    {
+      "path": "/Users/samu/Documents/Uni/5º/2º Cuatri/TFG/TFG_trabajo/Errores/erroresBL.csv",
+      "sha256": "97e79620ddb1f7acf052c28b2670d4bea9d570477863545634951cf114723225",
+      "n_errors": 150
+    },
+    {
+      "path": "/Users/samu/Documents/Uni/5º/2º Cuatri/TFG/TFG_trabajo/Errores/erroresSA.csv",
+      "sha256": "df63e9fc30df38b07b2d73b3d114502df71b117529c9a7ae89876707e7de8a83",
+      "n_errors": 150
+    },
+    {
+      "path": "/Users/samu/Documents/Uni/5º/2º Cuatri/TFG/TFG_trabajo/Errores/erroresILS.csv",
+      "sha256": "3d92db9ede9d9ebe4f6a5aa6a0a37474c36400764d589b735477e85326451e6c",
+      "n_errors": 150
+    },
+    {
+      "path": "/Users/samu/Documents/Uni/5º/2º Cuatri/TFG/TFG_trabajo/Errores/erroresEA.csv",
+      "sha256": "e3e928db67697c3f4a3d666084b9472ba8f0640d4c1e52735fdf6d36822adba0",
+      "n_errors": 150
+    },
+    {
+      "path": "/Users/samu/Documents/Uni/5º/2º Cuatri/TFG/TFG_trabajo/Errores/erroresEA+E.csv",
+      "sha256": "20d1e2079fe4aa18b3629d56d74c7ca971a52b284b95e01b39a92c00a98eb512",
+      "n_errors": 150
+    },
+    {
+      "path": "/Users/samu/Documents/Uni/5º/2º Cuatri/TFG/TFG_trabajo/Errores/erroresMA+E.csv",
+      "sha256": "673e51ed3e8eb66a5bfcd39cb14188b0bfca43122614673e01865db84de05c42",
+      "n_errors": 150
+    },
+    {
+      "path": "/Users/samu/Documents/Uni/5º/2º Cuatri/TFG/TFG_trabajo/Errores/erroresDE.csv",
+      "sha256": "0db0586bb6d78a44ec10fe67ed6917b253dbc8c9a0480f4e9d5d1dff3a28e13e",
+      "n_errors": 150
+    }
+  ],
+  "output": {
+    "path": "results/historical_runs.csv",
+    "sha256": "4c0351472292f576509ae3d81d6664380029a810cbbc84d19b8d01a6bcdf22bb"
+  },
+  "reference_parameters": {
+    "eta": 0.36787944117144233,
+    "beta1": 0.1,
+    "beta2": -0.009,
+    "beta3": 0.0002,
+    "sigma2": 0.0001
+  },
+  "validation": {
+    "runs": 210,
+    "runs_per_algorithm": 30,
+    "errors_checked": 1050,
+    "absolute_tolerance": 1e-12,
+    "max_absolute_difference": 0.0
+  },
+  "numeric_policy": "Original LaTeX numeric tokens preserved; no extra precision inferred.",
+  "rows": [
+    {
+      "algorithm": "BL",
+      "run": 1,
+      "table_label": "tab:bl_30runs",
+      "source_line": 37
+    },
+    {
+      "algorithm": "BL",
+      "run": 2,
+      "table_label": "tab:bl_30runs",
+      "source_line": 38
+    },
+    {
+      "algorithm": "BL",
+      "run": 3,
+      "table_label": "tab:bl_30runs",
+      "source_line": 39
+    },
+    {
+      "algorithm": "BL",
+      "run": 4,
+      "table_label": "tab:bl_30runs",
+      "source_line": 40
+    },
+    {
+      "algorithm": "BL",
+      "run": 5,
+      "table_label": "tab:bl_30runs",
+      "source_line": 41
+    },
+    {
+      "algorithm": "BL",
+      "run": 6,
+      "table_label": "tab:bl_30runs",
+      "source_line": 42
+    },
+    {
+      "algorithm": "BL",
+      "run": 7,
+      "table_label": "tab:bl_30runs",
+      "source_line": 43
+    },
+    {
+      "algorithm": "BL",
+      "run": 8,
+      "table_label": "tab:bl_30runs",
+      "source_line": 44
+    },
+    {
+      "algorithm": "BL",
+      "run": 9,
+      "table_label": "tab:bl_30runs",
+      "source_line": 45
+    },
+    {
+      "algorithm": "BL",
+      "run": 10,
+      "table_label": "tab:bl_30runs",
+      "source_line": 46
+    },
+    {
+      "algorithm": "BL",
+      "run": 11,
+      "table_label": "tab:bl_30runs",
+      "source_line": 47
+    },
+    {
+      "algorithm": "BL",
+      "run": 12,
+      "table_label": "tab:bl_30runs",
+      "source_line": 48
+    },
+    {
+      "algorithm": "BL",
+      "run": 13,
+      "table_label": "tab:bl_30runs",
+      "source_line": 49
+    },
+    {
+      "algorithm": "BL",
+      "run": 14,
+      "table_label": "tab:bl_30runs",
+      "source_line": 50
+    },
+    {
+      "algorithm": "BL",
+      "run": 15,
+      "table_label": "tab:bl_30runs",
+      "source_line": 51
+    },
+    {
+      "algorithm": "BL",
+      "run": 16,
+      "table_label": "tab:bl_30runs",
+      "source_line": 52
+    },
+    {
+      "algorithm": "BL",
+      "run": 17,
+      "table_label": "tab:bl_30runs",
+      "source_line": 53
+    },
+    {
+      "algorithm": "BL",
+      "run": 18,
+      "table_label": "tab:bl_30runs",
+      "source_line": 54
+    },
+    {
+      "algorithm": "BL",
+      "run": 19,
+      "table_label": "tab:bl_30runs",
+      "source_line": 55
+    },
+    {
+      "algorithm": "BL",
+      "run": 20,
+      "table_label": "tab:bl_30runs",
+      "source_line": 56
+    },
+    {
+      "algorithm": "BL",
+      "run": 21,
+      "table_label": "tab:bl_30runs",
+      "source_line": 57
+    },
+    {
+      "algorithm": "BL",
+      "run": 22,
+      "table_label": "tab:bl_30runs",
+      "source_line": 58
+    },
+    {
+      "algorithm": "BL",
+      "run": 23,
+      "table_label": "tab:bl_30runs",
+      "source_line": 59
+    },
+    {
+      "algorithm": "BL",
+      "run": 24,
+      "table_label": "tab:bl_30runs",
+      "source_line": 60
+    },
+    {
+      "algorithm": "BL",
+      "run": 25,
+      "table_label": "tab:bl_30runs",
+      "source_line": 61
+    },
+    {
+      "algorithm": "BL",
+      "run": 26,
+      "table_label": "tab:bl_30runs",
+      "source_line": 62
+    },
+    {
+      "algorithm": "BL",
+      "run": 27,
+      "table_label": "tab:bl_30runs",
+      "source_line": 63
+    },
+    {
+      "algorithm": "BL",
+      "run": 28,
+      "table_label": "tab:bl_30runs",
+      "source_line": 64
+    },
+    {
+      "algorithm": "BL",
+      "run": 29,
+      "table_label": "tab:bl_30runs",
+      "source_line": 65
+    },
+    {
+      "algorithm": "BL",
+      "run": 30,
+      "table_label": "tab:bl_30runs",
+      "source_line": 66
+    },
+    {
+      "algorithm": "SA",
+      "run": 1,
+      "table_label": "tab:sa_30runs",
+      "source_line": 135
+    },
+    {
+      "algorithm": "SA",
+      "run": 2,
+      "table_label": "tab:sa_30runs",
+      "source_line": 136
+    },
+    {
+      "algorithm": "SA",
+      "run": 3,
+      "table_label": "tab:sa_30runs",
+      "source_line": 137
+    },
+    {
+      "algorithm": "SA",
+      "run": 4,
+      "table_label": "tab:sa_30runs",
+      "source_line": 138
+    },
+    {
+      "algorithm": "SA",
+      "run": 5,
+      "table_label": "tab:sa_30runs",
+      "source_line": 139
+    },
+    {
+      "algorithm": "SA",
+      "run": 6,
+      "table_label": "tab:sa_30runs",
+      "source_line": 140
+    },
+    {
+      "algorithm": "SA",
+      "run": 7,
+      "table_label": "tab:sa_30runs",
+      "source_line": 141
+    },
+    {
+      "algorithm": "SA",
+      "run": 8,
+      "table_label": "tab:sa_30runs",
+      "source_line": 142
+    },
+    {
+      "algorithm": "SA",
+      "run": 9,
+      "table_label": "tab:sa_30runs",
+      "source_line": 143
+    },
+    {
+      "algorithm": "SA",
+      "run": 10,
+      "table_label": "tab:sa_30runs",
+      "source_line": 144
+    },
+    {
+      "algorithm": "SA",
+      "run": 11,
+      "table_label": "tab:sa_30runs",
+      "source_line": 145
+    },
+    {
+      "algorithm": "SA",
+      "run": 12,
+      "table_label": "tab:sa_30runs",
+      "source_line": 146
+    },
+    {
+      "algorithm": "SA",
+      "run": 13,
+      "table_label": "tab:sa_30runs",
+      "source_line": 147
+    },
+    {
+      "algorithm": "SA",
+      "run": 14,
+      "table_label": "tab:sa_30runs",
+      "source_line": 148
+    },
+    {
+      "algorithm": "SA",
+      "run": 15,
+      "table_label": "tab:sa_30runs",
+      "source_line": 149
+    },
+    {
+      "algorithm": "SA",
+      "run": 16,
+      "table_label": "tab:sa_30runs",
+      "source_line": 150
+    },
+    {
+      "algorithm": "SA",
+      "run": 17,
+      "table_label": "tab:sa_30runs",
+      "source_line": 151
+    },
+    {
+      "algorithm": "SA",
+      "run": 18,
+      "table_label": "tab:sa_30runs",
+      "source_line": 152
+    },
+    {
+      "algorithm": "SA",
+      "run": 19,
+      "table_label": "tab:sa_30runs",
+      "source_line": 153
+    },
+    {
+      "algorithm": "SA",
+      "run": 20,
+      "table_label": "tab:sa_30runs",
+      "source_line": 154
+    },
+    {
+      "algorithm": "SA",
+      "run": 21,
+      "table_label": "tab:sa_30runs",
+      "source_line": 155
+    },
+    {
+      "algorithm": "SA",
+      "run": 22,
+      "table_label": "tab:sa_30runs",
+      "source_line": 156
+    },
+    {
+      "algorithm": "SA",
+      "run": 23,
+      "table_label": "tab:sa_30runs",
+      "source_line": 157
+    },
+    {
+      "algorithm": "SA",
+      "run": 24,
+      "table_label": "tab:sa_30runs",
+      "source_line": 158
+    },
+    {
+      "algorithm": "SA",
+      "run": 25,
+      "table_label": "tab:sa_30runs",
+      "source_line": 159
+    },
+    {
+      "algorithm": "SA",
+      "run": 26,
+      "table_label": "tab:sa_30runs",
+      "source_line": 160
+    },
+    {
+      "algorithm": "SA",
+      "run": 27,
+      "table_label": "tab:sa_30runs",
+      "source_line": 161
+    },
+    {
+      "algorithm": "SA",
+      "run": 28,
+      "table_label": "tab:sa_30runs",
+      "source_line": 162
+    },
+    {
+      "algorithm": "SA",
+      "run": 29,
+      "table_label": "tab:sa_30runs",
+      "source_line": 163
+    },
+    {
+      "algorithm": "SA",
+      "run": 30,
+      "table_label": "tab:sa_30runs",
+      "source_line": 164
+    },
+    {
+      "algorithm": "ILS",
+      "run": 1,
+      "table_label": "tab:ils_30runs",
+      "source_line": 223
+    },
+    {
+      "algorithm": "ILS",
+      "run": 2,
+      "table_label": "tab:ils_30runs",
+      "source_line": 224
+    },
+    {
+      "algorithm": "ILS",
+      "run": 3,
+      "table_label": "tab:ils_30runs",
+      "source_line": 225
+    },
+    {
+      "algorithm": "ILS",
+      "run": 4,
+      "table_label": "tab:ils_30runs",
+      "source_line": 226
+    },
+    {
+      "algorithm": "ILS",
+      "run": 5,
+      "table_label": "tab:ils_30runs",
+      "source_line": 227
+    },
+    {
+      "algorithm": "ILS",
+      "run": 6,
+      "table_label": "tab:ils_30runs",
+      "source_line": 228
+    },
+    {
+      "algorithm": "ILS",
+      "run": 7,
+      "table_label": "tab:ils_30runs",
+      "source_line": 229
+    },
+    {
+      "algorithm": "ILS",
+      "run": 8,
+      "table_label": "tab:ils_30runs",
+      "source_line": 230
+    },
+    {
+      "algorithm": "ILS",
+      "run": 9,
+      "table_label": "tab:ils_30runs",
+      "source_line": 231
+    },
+    {
+      "algorithm": "ILS",
+      "run": 10,
+      "table_label": "tab:ils_30runs",
+      "source_line": 232
+    },
+    {
+      "algorithm": "ILS",
+      "run": 11,
+      "table_label": "tab:ils_30runs",
+      "source_line": 233
+    },
+    {
+      "algorithm": "ILS",
+      "run": 12,
+      "table_label": "tab:ils_30runs",
+      "source_line": 234
+    },
+    {
+      "algorithm": "ILS",
+      "run": 13,
+      "table_label": "tab:ils_30runs",
+      "source_line": 235
+    },
+    {
+      "algorithm": "ILS",
+      "run": 14,
+      "table_label": "tab:ils_30runs",
+      "source_line": 236
+    },
+    {
+      "algorithm": "ILS",
+      "run": 15,
+      "table_label": "tab:ils_30runs",
+      "source_line": 237
+    },
+    {
+      "algorithm": "ILS",
+      "run": 16,
+      "table_label": "tab:ils_30runs",
+      "source_line": 238
+    },
+    {
+      "algorithm": "ILS",
+      "run": 17,
+      "table_label": "tab:ils_30runs",
+      "source_line": 239
+    },
+    {
+      "algorithm": "ILS",
+      "run": 18,
+      "table_label": "tab:ils_30runs",
+      "source_line": 240
+    },
+    {
+      "algorithm": "ILS",
+      "run": 19,
+      "table_label": "tab:ils_30runs",
+      "source_line": 241
+    },
+    {
+      "algorithm": "ILS",
+      "run": 20,
+      "table_label": "tab:ils_30runs",
+      "source_line": 242
+    },
+    {
+      "algorithm": "ILS",
+      "run": 21,
+      "table_label": "tab:ils_30runs",
+      "source_line": 243
+    },
+    {
+      "algorithm": "ILS",
+      "run": 22,
+      "table_label": "tab:ils_30runs",
+      "source_line": 244
+    },
+    {
+      "algorithm": "ILS",
+      "run": 23,
+      "table_label": "tab:ils_30runs",
+      "source_line": 245
+    },
+    {
+      "algorithm": "ILS",
+      "run": 24,
+      "table_label": "tab:ils_30runs",
+      "source_line": 246
+    },
+    {
+      "algorithm": "ILS",
+      "run": 25,
+      "table_label": "tab:ils_30runs",
+      "source_line": 247
+    },
+    {
+      "algorithm": "ILS",
+      "run": 26,
+      "table_label": "tab:ils_30runs",
+      "source_line": 248
+    },
+    {
+      "algorithm": "ILS",
+      "run": 27,
+      "table_label": "tab:ils_30runs",
+      "source_line": 249
+    },
+    {
+      "algorithm": "ILS",
+      "run": 28,
+      "table_label": "tab:ils_30runs",
+      "source_line": 250
+    },
+    {
+      "algorithm": "ILS",
+      "run": 29,
+      "table_label": "tab:ils_30runs",
+      "source_line": 251
+    },
+    {
+      "algorithm": "ILS",
+      "run": 30,
+      "table_label": "tab:ils_30runs",
+      "source_line": 252
+    },
+    {
+      "algorithm": "EA",
+      "run": 1,
+      "table_label": "tab:ga_30runs",
+      "source_line": 316
+    },
+    {
+      "algorithm": "EA",
+      "run": 2,
+      "table_label": "tab:ga_30runs",
+      "source_line": 317
+    },
+    {
+      "algorithm": "EA",
+      "run": 3,
+      "table_label": "tab:ga_30runs",
+      "source_line": 318
+    },
+    {
+      "algorithm": "EA",
+      "run": 4,
+      "table_label": "tab:ga_30runs",
+      "source_line": 319
+    },
+    {
+      "algorithm": "EA",
+      "run": 5,
+      "table_label": "tab:ga_30runs",
+      "source_line": 320
+    },
+    {
+      "algorithm": "EA",
+      "run": 6,
+      "table_label": "tab:ga_30runs",
+      "source_line": 321
+    },
+    {
+      "algorithm": "EA",
+      "run": 7,
+      "table_label": "tab:ga_30runs",
+      "source_line": 322
+    },
+    {
+      "algorithm": "EA",
+      "run": 8,
+      "table_label": "tab:ga_30runs",
+      "source_line": 323
+    },
+    {
+      "algorithm": "EA",
+      "run": 9,
+      "table_label": "tab:ga_30runs",
+      "source_line": 324
+    },
+    {
+      "algorithm": "EA",
+      "run": 10,
+      "table_label": "tab:ga_30runs",
+      "source_line": 325
+    },
+    {
+      "algorithm": "EA",
+      "run": 11,
+      "table_label": "tab:ga_30runs",
+      "source_line": 326
+    },
+    {
+      "algorithm": "EA",
+      "run": 12,
+      "table_label": "tab:ga_30runs",
+      "source_line": 327
+    },
+    {
+      "algorithm": "EA",
+      "run": 13,
+      "table_label": "tab:ga_30runs",
+      "source_line": 328
+    },
+    {
+      "algorithm": "EA",
+      "run": 14,
+      "table_label": "tab:ga_30runs",
+      "source_line": 329
+    },
+    {
+      "algorithm": "EA",
+      "run": 15,
+      "table_label": "tab:ga_30runs",
+      "source_line": 330
+    },
+    {
+      "algorithm": "EA",
+      "run": 16,
+      "table_label": "tab:ga_30runs",
+      "source_line": 331
+    },
+    {
+      "algorithm": "EA",
+      "run": 17,
+      "table_label": "tab:ga_30runs",
+      "source_line": 332
+    },
+    {
+      "algorithm": "EA",
+      "run": 18,
+      "table_label": "tab:ga_30runs",
+      "source_line": 333
+    },
+    {
+      "algorithm": "EA",
+      "run": 19,
+      "table_label": "tab:ga_30runs",
+      "source_line": 334
+    },
+    {
+      "algorithm": "EA",
+      "run": 20,
+      "table_label": "tab:ga_30runs",
+      "source_line": 335
+    },
+    {
+      "algorithm": "EA",
+      "run": 21,
+      "table_label": "tab:ga_30runs",
+      "source_line": 336
+    },
+    {
+      "algorithm": "EA",
+      "run": 22,
+      "table_label": "tab:ga_30runs",
+      "source_line": 337
+    },
+    {
+      "algorithm": "EA",
+      "run": 23,
+      "table_label": "tab:ga_30runs",
+      "source_line": 338
+    },
+    {
+      "algorithm": "EA",
+      "run": 24,
+      "table_label": "tab:ga_30runs",
+      "source_line": 339
+    },
+    {
+      "algorithm": "EA",
+      "run": 25,
+      "table_label": "tab:ga_30runs",
+      "source_line": 340
+    },
+    {
+      "algorithm": "EA",
+      "run": 26,
+      "table_label": "tab:ga_30runs",
+      "source_line": 341
+    },
+    {
+      "algorithm": "EA",
+      "run": 27,
+      "table_label": "tab:ga_30runs",
+      "source_line": 342
+    },
+    {
+      "algorithm": "EA",
+      "run": 28,
+      "table_label": "tab:ga_30runs",
+      "source_line": 343
+    },
+    {
+      "algorithm": "EA",
+      "run": 29,
+      "table_label": "tab:ga_30runs",
+      "source_line": 344
+    },
+    {
+      "algorithm": "EA",
+      "run": 30,
+      "table_label": "tab:ga_30runs",
+      "source_line": 345
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 1,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 408
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 2,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 409
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 3,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 410
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 4,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 411
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 5,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 412
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 6,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 413
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 7,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 414
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 8,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 415
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 9,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 416
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 10,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 417
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 11,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 418
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 12,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 419
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 13,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 420
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 14,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 421
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 15,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 422
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 16,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 423
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 17,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 424
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 18,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 425
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 19,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 426
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 20,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 427
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 21,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 428
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 22,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 429
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 23,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 430
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 24,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 431
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 25,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 432
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 26,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 433
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 27,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 434
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 28,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 435
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 29,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 436
+    },
+    {
+      "algorithm": "EA+E",
+      "run": 30,
+      "table_label": "tab:ga_elite_30runs",
+      "source_line": 437
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 1,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 500
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 2,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 501
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 3,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 502
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 4,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 503
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 5,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 504
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 6,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 505
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 7,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 506
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 8,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 507
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 9,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 508
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 10,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 509
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 11,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 510
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 12,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 511
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 13,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 512
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 14,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 513
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 15,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 514
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 16,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 515
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 17,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 516
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 18,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 517
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 19,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 518
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 20,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 519
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 21,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 520
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 22,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 521
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 23,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 522
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 24,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 523
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 25,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 524
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 26,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 525
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 27,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 526
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 28,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 527
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 29,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 528
+    },
+    {
+      "algorithm": "MA+E",
+      "run": 30,
+      "table_label": "tab:memetic_elite_30runs",
+      "source_line": 529
+    },
+    {
+      "algorithm": "DE",
+      "run": 1,
+      "table_label": "tab:de_30runs",
+      "source_line": 600
+    },
+    {
+      "algorithm": "DE",
+      "run": 2,
+      "table_label": "tab:de_30runs",
+      "source_line": 601
+    },
+    {
+      "algorithm": "DE",
+      "run": 3,
+      "table_label": "tab:de_30runs",
+      "source_line": 602
+    },
+    {
+      "algorithm": "DE",
+      "run": 4,
+      "table_label": "tab:de_30runs",
+      "source_line": 603
+    },
+    {
+      "algorithm": "DE",
+      "run": 5,
+      "table_label": "tab:de_30runs",
+      "source_line": 604
+    },
+    {
+      "algorithm": "DE",
+      "run": 6,
+      "table_label": "tab:de_30runs",
+      "source_line": 605
+    },
+    {
+      "algorithm": "DE",
+      "run": 7,
+      "table_label": "tab:de_30runs",
+      "source_line": 606
+    },
+    {
+      "algorithm": "DE",
+      "run": 8,
+      "table_label": "tab:de_30runs",
+      "source_line": 607
+    },
+    {
+      "algorithm": "DE",
+      "run": 9,
+      "table_label": "tab:de_30runs",
+      "source_line": 608
+    },
+    {
+      "algorithm": "DE",
+      "run": 10,
+      "table_label": "tab:de_30runs",
+      "source_line": 609
+    },
+    {
+      "algorithm": "DE",
+      "run": 11,
+      "table_label": "tab:de_30runs",
+      "source_line": 610
+    },
+    {
+      "algorithm": "DE",
+      "run": 12,
+      "table_label": "tab:de_30runs",
+      "source_line": 611
+    },
+    {
+      "algorithm": "DE",
+      "run": 13,
+      "table_label": "tab:de_30runs",
+      "source_line": 612
+    },
+    {
+      "algorithm": "DE",
+      "run": 14,
+      "table_label": "tab:de_30runs",
+      "source_line": 613
+    },
+    {
+      "algorithm": "DE",
+      "run": 15,
+      "table_label": "tab:de_30runs",
+      "source_line": 614
+    },
+    {
+      "algorithm": "DE",
+      "run": 16,
+      "table_label": "tab:de_30runs",
+      "source_line": 615
+    },
+    {
+      "algorithm": "DE",
+      "run": 17,
+      "table_label": "tab:de_30runs",
+      "source_line": 616
+    },
+    {
+      "algorithm": "DE",
+      "run": 18,
+      "table_label": "tab:de_30runs",
+      "source_line": 617
+    },
+    {
+      "algorithm": "DE",
+      "run": 19,
+      "table_label": "tab:de_30runs",
+      "source_line": 618
+    },
+    {
+      "algorithm": "DE",
+      "run": 20,
+      "table_label": "tab:de_30runs",
+      "source_line": 619
+    },
+    {
+      "algorithm": "DE",
+      "run": 21,
+      "table_label": "tab:de_30runs",
+      "source_line": 620
+    },
+    {
+      "algorithm": "DE",
+      "run": 22,
+      "table_label": "tab:de_30runs",
+      "source_line": 621
+    },
+    {
+      "algorithm": "DE",
+      "run": 23,
+      "table_label": "tab:de_30runs",
+      "source_line": 622
+    },
+    {
+      "algorithm": "DE",
+      "run": 24,
+      "table_label": "tab:de_30runs",
+      "source_line": 623
+    },
+    {
+      "algorithm": "DE",
+      "run": 25,
+      "table_label": "tab:de_30runs",
+      "source_line": 624
+    },
+    {
+      "algorithm": "DE",
+      "run": 26,
+      "table_label": "tab:de_30runs",
+      "source_line": 625
+    },
+    {
+      "algorithm": "DE",
+      "run": 27,
+      "table_label": "tab:de_30runs",
+      "source_line": 626
+    },
+    {
+      "algorithm": "DE",
+      "run": 28,
+      "table_label": "tab:de_30runs",
+      "source_line": 627
+    },
+    {
+      "algorithm": "DE",
+      "run": 29,
+      "table_label": "tab:de_30runs",
+      "source_line": 628
+    },
+    {
+      "algorithm": "DE",
+      "run": 30,
+      "table_label": "tab:de_30runs",
+      "source_line": 629
+    }
+  ]
+}
