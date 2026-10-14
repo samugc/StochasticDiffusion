@@ -1,7 +1,11 @@
 #include "io_handler.hpp"
+
+#include <algorithm>
 #include <fstream>
-#include <sstream>
+#include <iomanip>
 #include <iostream>
+#include <iterator>
+#include <sstream>
 
 using namespace std;
 using namespace Eigen;
