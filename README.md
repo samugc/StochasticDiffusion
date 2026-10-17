@@ -34,20 +34,11 @@ The repository contains two distinct pieces of evidence:
 
 ![Simulated trajectories and fitted diffusion model](figures/trajectory_fit.png)
 
-The supplied dataset contains **100 stochastic trajectories observed at 501 time points**. Regression-based initialization estimates four shape parameters: η, β₁, β₂ and β₃. In this demo, their maximum relative absolute error is **4.49%**.
-
-| Parameter | Estimate | Reference | Relative absolute error |
-|---|---:|---:|---:|
-| η | 0.362512 | 0.367879 | 1.46% |
-| β₁ | 0.104492 | 0.100000 | 4.49% |
-| β₂ | -0.009289 | -0.009000 | 3.21% |
-| β₃ | 0.000205 | 0.000200 | 2.36% |
-
-Displayed estimates are rounded; relative errors use the underlying estimates. The estimated-model RMSE against the sample mean is **0.137678**. The generating reference model has RMSE **0.031751** against that same finite-sample mean.
+The quick demo runs the regression-based initialization and evaluates the resulting mean curve against the supplied simulated trajectories. Displayed estimates in the summary above are rounded; relative errors use the underlying estimates.
 
 ![Relative errors of the four initial shape-parameter estimates](figures/parameter_recovery.png)
 
-**This quick demo is not the seven-algorithm historical benchmark.** It does not run Newton–Raphson or the stochastic optimizers.
+It does **not** run Newton–Raphson or the stochastic optimizers; those belong to the historical optimization study below.
 
 ## Historical optimization study
 
