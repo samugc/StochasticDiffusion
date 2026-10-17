@@ -1,14 +1,34 @@
 # StochasticDiffusion
 
-C++ parameter estimation and optimization for a stochastic multi-sigmoidal diffusion model.
-
 [![CI](https://github.com/samugc/StochasticDiffusion/actions/workflows/ci.yml/badge.svg)](https://github.com/samugc/StochasticDiffusion/actions/workflows/ci.yml)
+
+C++17 parameter estimation for a stochastic multi-sigmoidal diffusion model using **numerical, evolutionary and memetic optimization**.
 
 Developed from my Bachelor's thesis in Mathematics and Computer Engineering at the University of Granada.
 
+## Results at a glance
+
+The supplied demo uses **100 stochastic trajectories observed at 501 time points**. Regression-based initialization estimates four shape parameters and reaches a maximum relative absolute error of **4.49%** on this simulated dataset.
+
+| Parameter | Estimate | Reference | Relative absolute error |
+|---|---:|---:|---:|
+| η | 0.362512 | 0.367879 | 1.46% |
+| β₁ | 0.104492 | 0.100000 | **4.49%** |
+| β₂ | -0.009289 | -0.009000 | 3.21% |
+| β₃ | 0.000205 | 0.000200 | 2.36% |
+
+The estimated-model RMSE against the sample mean is **0.137678**. The generating reference model has RMSE **0.031751** against that same finite-sample mean.
+
+**This demo is reproducible from the current repository, but it is not the seven-algorithm historical benchmark.** The historical study contains 30 recorded runs for each of seven optimizers, but exact optimizer reruns are not fully reproducible because the original seeds and complete execution logs are unavailable.
+
 ## Overview
 
-This project estimates the parameters of a stochastic diffusion process whose mean follows a multi-sigmoidal growth curve. Starting from simulated trajectories, it combines mathematical initialization, likelihood-based numerical and evolutionary optimization, and experimental comparison. The repository includes a fast regression-based demo and a separately documented historical optimization study.
+This project estimates the parameters of a stochastic diffusion process whose mean follows a multi-sigmoidal growth curve. Starting from simulated trajectories, it combines mathematical initialization, likelihood-based numerical and evolutionary optimization, and experimental comparison.
+
+The repository contains two distinct pieces of evidence:
+
+- a **current reproducible demo** based on regression initialization;
+- a **historical optimization study** reconstructed and validated from the original thesis records.
 
 ## Quick demo
 
